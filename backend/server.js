@@ -7,6 +7,7 @@ const rateLimit = require('express-rate-limit');
 require('dotenv').config();
 
 const app = express();
+app.set('trust proxy', 1); // Necesario para que el Rate Limit funcione detrás del proxy de Render
 
 // Security Middlewares
 app.use(helmet());
