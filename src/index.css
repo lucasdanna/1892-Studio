@@ -1,0 +1,87 @@
+:root {
+  --bg-color: #000000;
+  --text-color: #ffffff;
+  --accent-color: #ffffff;
+  --border-color: rgba(255, 255, 255, 0.2);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  overflow-x: hidden;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  background-image: 
+    linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  background-size: 50px 50px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: -0.05em;
+  line-height: 1.1;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #000;
+}
+::-webkit-scrollbar-thumb {
+  background: #333;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #fff;
+}
+
+.brutalist-border {
+  border: 2px solid var(--text-color);
+}
+
+.brutalist-shadow {
+  box-shadow: 10px 10px 0 0 color-mix(in srgb, var(--text-color) 40%, var(--bg-color));
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.brutalist-shadow:hover {
+  transform: translate(0, 0);
+  box-shadow: 2px 2px 0px color-mix(in srgb, var(--text-color) 40%, var(--bg-color));
+}
+
+::placeholder {
+  color: var(--text-color);
+  opacity: 0.7;
+}
+
+body.theme-gold {
+  --bg-color: var(--gold-bg, #0B2416);
+  --text-color: var(--gold-text, #FFD700);
+  --accent-color: var(--gold-text, #FFD700);
+  --border-color: var(--gold-text, #FFD700);
+}
+
+body.theme-gold ::-webkit-scrollbar-track {
+  background: #0B2416;
+}
+body.theme-gold ::-webkit-scrollbar-thumb {
+  background: #143d26;
+}
+body.theme-gold ::-webkit-scrollbar-thumb:hover {
+  background: #FFD700;
+}
