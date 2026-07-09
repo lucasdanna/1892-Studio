@@ -32,8 +32,12 @@ router.post('/', async (req, res) => {
           text: `Has recibido un nuevo mensaje desde el portafolio.\n\nNombre: ${message.name}\nEmail: ${message.email}\n\nMensaje:\n${message.message}`
         };
 
-        await transporter.sendMail(mailOptions);
-        console.log('Email sent successfully');
+        // Quitamos el await para que no bloquee la respuesta si el puerto SMTP está bloqueado
+        transporter.sendMail(mailOptions).then(() => {
+          console.log('Email sent successfully');
+        }).catch((emailErr) => {
+          console.error('Error sending email (probablemente bloqueado por Render Free Tier):', emailErr.message);
+        });
       } else {
         console.log('Nodemailer credentials not set, email not sent.');
       }
